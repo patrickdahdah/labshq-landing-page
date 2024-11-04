@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabsHQ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.5));
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-900 text-gray-100">
+    <nav class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-10">
+        <div class="max-w-5xl mx-auto px-4 py-3">
+            <div class="flex items-center justify-center md:justify-start">
+                <svg class="h-10 w-10 text-teal-400 logo-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path>
+                    <path d="M8.5 2h7"></path>
+                    <path d="M7 16h10"></path>
+                </svg>
+                <span class="ml-3 text-xl font-bold text-white">LabsHQ</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-gradient-to-r from-teal-800 to-indigo-900 text-white pt-32 pb-20">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                LabsHQ
+            </h1>
+
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Empowering Developers,
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-orange-600">
+                    One SDK at a Time
+                </span>
+            </h2>
+            <p class="text-lg md:text-xl font-light">
+                Unlock the full potential of your applications with our cutting-edge SDKs
+            </p>
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 py-16 space-y-24">
+        <!-- Services section with enhanced prominence -->
+        <section class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-teal-500/20">
+            <h2 class="text-3xl font-bold mb-8 text-teal-300">Our Services</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-md border-l-4 border-teal-500 hover:bg-gray-800/80 transition">
+                    <h3 class="text-2xl font-semibold mb-4 text-teal-300">SDK Development</h3>
+                    <p class="text-gray-300 text-lg">Crafting comprehensive, custom Software Development Kits to enhance and integrate advanced functionalities into applications.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-md border-l-4 border-indigo-500 hover:bg-gray-800/80 transition">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-300">Consulting & Custom Solutions</h3>
+                    <p class="text-gray-300 text-lg">Tailored consulting services and custom SDK development to meet the unique needs of your business and support long-term growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us section with reduced prominence -->
+        <section class="opacity-90">
+            <h2 class="text-xl font-semibold mb-4 text-teal-300/80">About Us</h2>
+            <p class="text-base leading-relaxed bg-gray-800/50 p-6 rounded-lg shadow-sm text-gray-400">
+                LabsHQ is a UK-based software development company specializing in SDKs. Our mission is to empower developers with powerful tools for seamless application integration. Owned and operated by an experienced team, we maintain a flat structure to promote agility, transparency, and innovation in all our projects, supported by a robust culture of accountability and collaboration.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-6 text-teal-300">Contact Us</h2>
+            <div class="space-y-4 bg-gray-800 p-6 rounded-lg shadow-md">
+                <div class="flex items-center">
+                    <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-teal-400"></i>
+                    <span class="text-gray-300">UK Labs Group Ltd, 20 Wenlock Road, London, N1 7GU</span>
+                </div>
+                <div class="flex items-center">
+                    <i data-lucide="phone" class="w-5 h-5 mr-3 text-teal-400"></i>
+                    <span class="text-gray-300">(786) 402-7869</span>
+                </div>
+                <div class="flex items-center">
+                    <i data-lucide="mail" class="w-5 h-5 mr-3 text-teal-400"></i>
+                    <a href="mailto:business@labshq.io" class="text-indigo-300 hover:underline">business@labshq.io</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 mt-16">
+        <div class="max-w-5xl mx-auto px-4 py-8 text-center">
+            <p>&copy; 2024 UK Labs Group Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
