@@ -7,12 +7,66 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
         body {
             font-family: 'Inter', sans-serif;
         }
         .logo-glow {
             filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.5));
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid rgba(45, 212, 191, 0.75);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(45, 212, 191, 0.75) }
+        }
+        /* Add new code styling */
+        pre {
+            margin: 0 !important;
+            padding: 0 !important;
+            background: none !important;
+        }
+        
+        pre code {
+            font-family: 'Fira Code', monospace !important;
+            background-color: #1a1a1a !important;
+            color: #e4e4e4 !important;
+            border-radius: 6px !important;
+            padding: 1.5rem !important;
+            display: block !important;
+            overflow-x: auto !important;
+            border: 1px solid #333 !important;
+            line-height: 1.5 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Code block styling */
+        .ide-code {
+            background-color: #1a1a1a !important;
+            color: #e4e4e4 !important;
+            font-family: 'Fira Code', monospace !important;
+            padding: 1.5rem !important;
+            border-radius: 6px !important;
+            border: 1px solid #333 !important;
+            display: block !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 1rem 0 !important;
+            white-space: pre !important;
+            overflow-x: auto !important;
+            line-height: 1.5 !important;
         }
     </style>
 </head>
@@ -42,6 +96,9 @@
                     One SDK at a Time
                 </span>
             </h2>
+            <div class="mb-8">
+                <p class="typewriter inline-block text-sm text-teal-300 font-mono">Activating your LabsHQ environment...</p>
+            </div>
             <p class="text-lg md:text-xl font-light">
                 Unlock the full potential of your applications with our cutting-edge SDKs
             </p>
