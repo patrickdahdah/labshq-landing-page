@@ -7,12 +7,66 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
         body {
             font-family: 'Inter', sans-serif;
         }
         .logo-glow {
             filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.5));
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid rgba(45, 212, 191, 0.75);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(45, 212, 191, 0.75) }
+        }
+        /* Add new code styling */
+        pre {
+            margin: 0 !important;
+            padding: 0 !important;
+            background: none !important;
+        }
+        
+        pre code {
+            font-family: 'Fira Code', monospace !important;
+            background-color: #1a1a1a !important;
+            color: #e4e4e4 !important;
+            border-radius: 6px !important;
+            padding: 1.5rem !important;
+            display: block !important;
+            overflow-x: auto !important;
+            border: 1px solid #333 !important;
+            line-height: 1.5 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Code block styling */
+        .ide-code {
+            background-color: #1a1a1a !important;
+            color: #e4e4e4 !important;
+            font-family: 'Fira Code', monospace !important;
+            padding: 1.5rem !important;
+            border-radius: 6px !important;
+            border: 1px solid #333 !important;
+            display: block !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 1rem 0 !important;
+            white-space: pre !important;
+            overflow-x: auto !important;
+            line-height: 1.5 !important;
         }
     </style>
 </head>
@@ -42,6 +96,9 @@
                     One SDK at a Time
                 </span>
             </h2>
+            <div class="mb-8">
+                <p class="typewriter inline-block text-sm text-teal-300 font-mono">Activating your LabsHQ environment...</p>
+            </div>
             <p class="text-lg md:text-xl font-light">
                 Unlock the full potential of your applications with our cutting-edge SDKs
             </p>
@@ -68,20 +125,37 @@
         <section class="opacity-90">
             <h2 class="text-xl font-semibold mb-4 text-teal-300/80">About Us</h2>
             <p class="text-base leading-relaxed bg-gray-800/50 p-6 rounded-lg shadow-sm text-gray-400">
-                LabsHQ is a UK-based software development company specializing in SDKs. Our mission is to empower developers with powerful tools for seamless application integration. Owned and operated by an experienced team, we maintain a flat structure to promote agility, transparency, and innovation in all our projects, supported by a robust culture of accountability and collaboration.
+                LabsHQ is a software development company specializing in SDKs. Our mission is to empower developers with powerful tools for seamless application integration. Owned and operated by an experienced team, we maintain a flat structure to promote agility, transparency, and innovation in all our projects, supported by a robust culture of accountability and collaboration.
             </p>
         </section>
 
         <section>
             <h2 class="text-2xl font-semibold mb-6 text-teal-300">Contact Us</h2>
-            <div class="space-y-4 bg-gray-800 p-6 rounded-lg shadow-md">
-                <div class="flex items-center">
-                    <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-teal-400"></i>
-                    <span class="text-gray-300">UK Labs Group Ltd, 20 Wenlock Road, London, N1 7GU</span>
-                </div>
+            
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-6">
                 <div class="flex items-center">
                     <i data-lucide="mail" class="w-5 h-5 mr-3 text-teal-400"></i>
                     <a href="mailto:business@labshq.io" class="text-indigo-300 hover:underline">business@labshq.io</a>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-base font-semibold mb-2 text-teal-300">UK</h3>
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-teal-400"></i>
+                            <span class="text-gray-300 text-sm">20 Wenlock Road, London, N1 7GU</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-base font-semibold mb-2 text-teal-300">USA</h3>
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-teal-400"></i>
+                            <span class="text-gray-300 text-sm">1101 Brickell Ave, Miami, FL 33131</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,7 +163,7 @@
 
     <footer class="bg-gray-950 text-gray-400 mt-16">
         <div class="max-w-5xl mx-auto px-4 py-8 text-center">
-            <p>&copy; 2024 UK Labs Group Ltd. All rights reserved.</p>
+            <p>All rights reserved</p>
         </div>
     </footer>
 
