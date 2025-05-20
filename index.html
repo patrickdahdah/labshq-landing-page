@@ -8,12 +8,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+        
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
+
         .logo-glow {
             filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.5));
+            transition: all 0.3s ease;
         }
+
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 12px rgba(45, 212, 191, 0.8));
+            transform: scale(1.05);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f766e, #1e40af);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .typewriter {
             overflow: hidden;
             border-right: 2px solid rgba(45, 212, 191, 0.75);
@@ -23,74 +45,89 @@
                 typing 3.5s steps(40, end),
                 blink-caret 0.75s step-end infinite;
         }
+
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
+
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: rgba(45, 212, 191, 0.75) }
         }
-        /* Add new code styling */
-        pre {
-            margin: 0 !important;
-            padding: 0 !important;
-            background: none !important;
+
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        
-        pre code {
-            font-family: 'Fira Code', monospace !important;
-            background-color: #1a1a1a !important;
-            color: #e4e4e4 !important;
-            border-radius: 6px !important;
-            padding: 1.5rem !important;
-            display: block !important;
-            overflow-x: auto !important;
-            border: 1px solid #333 !important;
-            line-height: 1.5 !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
+
+        .service-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.hidden {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         /* Code block styling */
         .ide-code {
-            background-color: #1a1a1a !important;
-            color: #e4e4e4 !important;
-            font-family: 'Fira Code', monospace !important;
-            padding: 1.5rem !important;
-            border-radius: 6px !important;
-            border: 1px solid #333 !important;
-            display: block !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            margin: 1rem 0 !important;
-            white-space: pre !important;
-            overflow-x: auto !important;
-            line-height: 1.5 !important;
+            background-color: #1a1a1a;
+            color: #e4e4e4;
+            font-family: 'Fira Code', monospace;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid #333;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 1rem 0;
+            white-space: pre;
+            overflow-x: auto;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-900 text-gray-100">
-    <nav class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-10">
+    <nav class="nav-blur bg-gray-900/80 fixed w-full z-10">
         <div class="max-w-5xl mx-auto px-4 py-3">
-            <div class="flex items-center justify-center md:justify-start">
-                <svg class="h-10 w-10 text-teal-400 logo-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path>
-                    <path d="M8.5 2h7"></path>
-                    <path d="M7 16h10"></path>
-                </svg>
-                <span class="ml-3 text-xl font-bold text-white">LabsHQ</span>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-teal-400 logo-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path>
+                        <path d="M8.5 2h7"></path>
+                        <path d="M7 16h10"></path>
+                    </svg>
+                    <span class="ml-3 text-xl font-bold text-white">LabsHQ</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-teal-400 transition">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-teal-400 transition">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-teal-400 transition">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="bg-gradient-to-r from-teal-800 to-indigo-900 text-white pt-32 pb-20">
+    <div class="gradient-bg text-white pt-32 pb-20">
         <div class="max-w-5xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
                 LabsHQ
             </h1>
 
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
                 Empowering Developers,
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-orange-600">
                     One SDK at a Time
@@ -99,61 +136,97 @@
             <div class="mb-8">
                 <p class="typewriter inline-block text-sm text-teal-300 font-mono">Activating your LabsHQ environment...</p>
             </div>
-            <p class="text-lg md:text-xl font-light">
+            <p class="text-xl md:text-2xl font-light max-w-2xl mx-auto">
                 Unlock the full potential of your applications with our cutting-edge SDKs
             </p>
         </div>
     </div>
 
     <main class="max-w-5xl mx-auto px-4 py-16 space-y-24">
-        <!-- Services section with enhanced prominence -->
-        <section class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-teal-500/20">
+        <section id="services" class="fade-in">
             <h2 class="text-3xl font-bold mb-8 text-teal-300">Our Services</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-800 p-8 rounded-lg shadow-md border-l-4 border-teal-500 hover:bg-gray-800/80 transition">
+                <div class="service-card bg-gray-800/50 p-8 rounded-lg shadow-lg border border-teal-500/20 hover:border-teal-500/40 transition-all duration-300">
                     <h3 class="text-2xl font-semibold mb-4 text-teal-300">SDK Development</h3>
-                    <p class="text-gray-300 text-lg">Crafting comprehensive, custom Software Development Kits to enhance and integrate advanced functionalities into applications.</p>
+                    <p class="text-gray-300 text-lg mb-4">Crafting comprehensive, custom Software Development Kits to enhance and integrate advanced functionalities into applications.</p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-teal-400 mt-0.5"></i>
+                            <span>Custom SDK architecture and design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-teal-400 mt-0.5"></i>
+                            <span>Cross-platform compatibility</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-teal-400 mt-0.5"></i>
+                            <span>Comprehensive documentation and examples</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-lg shadow-md border-l-4 border-indigo-500 hover:bg-gray-800/80 transition">
+                <div class="service-card bg-gray-800/50 p-8 rounded-lg shadow-lg border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300">
                     <h3 class="text-2xl font-semibold mb-4 text-indigo-300">Consulting & Custom Solutions</h3>
-                    <p class="text-gray-300 text-lg">Tailored consulting services and custom SDK development to meet the unique needs of your business and support long-term growth.</p>
+                    <p class="text-gray-300 text-lg mb-4">Tailored consulting services and custom SDK development to meet the unique needs of your business and support long-term growth.</p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-indigo-400 mt-0.5"></i>
+                            <span>Technical strategy and architecture planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-indigo-400 mt-0.5"></i>
+                            <span>Integration and implementation support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-indigo-400 mt-0.5"></i>
+                            <span>Ongoing maintenance and optimization</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- About Us section with reduced prominence -->
-        <section class="opacity-90">
-            <h2 class="text-xl font-semibold mb-4 text-teal-300/80">About Us</h2>
-            <p class="text-base leading-relaxed bg-gray-800/50 p-6 rounded-lg shadow-sm text-gray-400">
-                LabsHQ is a software development company specializing in SDKs. Our mission is to empower developers with powerful tools for seamless application integration. Owned and operated by an experienced team, we maintain a flat structure to promote agility, transparency, and innovation in all our projects, supported by a robust culture of accountability and collaboration.
-            </p>
+        <section id="about" class="fade-in">
+            <h2 class="text-2xl font-semibold mb-4 text-teal-300">About Us</h2>
+            <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg border border-teal-500/20">
+                <p class="text-lg leading-relaxed text-gray-300">
+                    LabsHQ is a software development company specializing in SDKs. Our mission is to empower developers with powerful tools for seamless application integration. Owned and operated by an experienced team, we maintain a flat structure to promote agility, transparency, and innovation in all our projects, supported by a robust culture of accountability and collaboration.
+                </p>
+            </div>
         </section>
 
-        <section>
+        <section id="contact" class="fade-in">
             <h2 class="text-2xl font-semibold mb-6 text-teal-300">Contact Us</h2>
             
-            <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-6">
-                <div class="flex items-center">
-                    <i data-lucide="mail" class="w-5 h-5 mr-3 text-teal-400"></i>
-                    <a href="mailto:business@labshq.io" class="text-indigo-300 hover:underline">business@labshq.io</a>
-                </div>
-            </div>
-
-            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="text-base font-semibold mb-2 text-teal-300">UK</h3>
-                        <div class="flex items-center">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-teal-400"></i>
-                            <span class="text-gray-300 text-sm">The Quad, 311-321 Banbury Road, Oxford, OX3 7JH</span>
+            <div class="bg-gray-800/50 p-8 rounded-lg shadow-lg border border-teal-500/20">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-900/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-teal-300">UK</h3>
+                        <div class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-teal-400 mt-1"></i>
+                            <span class="text-gray-300">
+                                Uk Labs Group Ltd<br>
+                                The Quad, 311-321 Banbury Road<br>
+                                Oxford, OX3 7JH
+                            </span>
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-teal-400"></i>
+                            <a href="mailto:uk@labshq.io" class="text-indigo-300 hover:text-teal-400 transition-colors duration-300">uk@labshq.io</a>
                         </div>
                     </div>
                     
-                    <div>
-                        <h3 class="text-base font-semibold mb-2 text-teal-300">USA</h3>
-                        <div class="flex items-center">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-teal-400"></i>
-                            <span class="text-gray-300 text-sm">1101 Brickell Ave, Miami, FL 33131</span>
+                    <div class="bg-gray-900/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-teal-300">USA</h3>
+                        <div class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-teal-400 mt-1"></i>
+                            <span class="text-gray-300">
+                                1101 Brickell Ave<br>
+                                Miami, FL 33131
+                            </span>
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <i data-lucide="mail" class="w-5 h-5 mr-3 text-teal-400"></i>
+                            <a href="mailto:business@labshq.io" class="text-indigo-300 hover:text-teal-400 transition-colors duration-300">business@labshq.io</a>
                         </div>
                     </div>
                 </div>
@@ -163,12 +236,32 @@
 
     <footer class="bg-gray-950 text-gray-400 mt-16">
         <div class="max-w-5xl mx-auto px-4 py-8 text-center">
-            <p>All rights reserved</p>
+            <p>© 2025. All rights reserved</p>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('hidden');
+                } else {
+                    entry.target.classList.add('hidden');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+
+        // Add hidden class to all fade-in elements initially
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            el.classList.add('hidden');
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
